@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffb6cf">
+<title>Happy Birthday, Mahal ko!! 💙🌷</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #853b5a;
+  text-align: center;
+  background: linear-gradient(145deg, #fff0f5, #ffc5d9, #f8d8ff);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+section {
+  padding: 45px 18px;
+  position: relative;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  margin: auto;
+  padding: 30px 22px;
+  border: 1px solid #ffffffa8;
+  border-radius: 28px;
+  background: #ffffffb8;
+  box-shadow: 0 15px 45px #bd54832b;
+  backdrop-filter: blur(12px);
+}
+
+.tag {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #c45a84;
+}
+
+h1 {
+  font-size: clamp(30px, 8vw, 43px);
+  line-height: 1.25;
+  color: #d63378;
+  text-shadow: 0 3px 12px #ffffff;
+  margin: 20px 0;
+}
+
+h2 {
+  color: #d63378;
+  font-size: 26px;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #ff79a6, #e64d8a);
+  color: white;
+  border: 0;
+  border-radius: 40px;
+  padding: 14px 22px;
+  font-size: 16px;
+  box-shadow: 0 7px 18px #d94e873b;
+  margin: 8px 0;
+}
+
+.btn:active {
+  transform: scale(.96);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gift {
+  font-size: 95px;
+  display: block;
+  margin: 18px auto;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+  filter: drop-shadow(0 8px 12px #e77ca7);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+.glow {
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.sparkle {
+  animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 430px;
+  margin: 25px auto;
+}
+
+.photo {
+  background: #fff9fc;
+  padding: 8px 8px 14px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px #a84e6c20;
+  transform: rotate(-2deg);
+  margin: 0;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #ffe0eb;
+}
+
+.photo figcaption {
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+.letter {
+  background: #fff9fc;
+  border: 1px dashed #ef9cba;
+  border-radius: 18px;
+  padding: 22px 18px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.letter p {
+  margin: 12px 0;
+}
+
+.footer {
+  padding: 30px 15px 45px;
+  font-size: 13px;
+  color: #a54e72;
+}
+
+.heart {
+  position: fixed;
+  bottom: -45px;
+  z-index: 10;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+#birthdayPassword {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ffc1d5;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 16px;
+  margin: 12px 0;
+  background: white;
+  color: #853b5a;
+}
+
+#passwordError {
+  color: #c2185b;
+  font-weight: bold;
+  min-height: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN: ITO LANG ANG UNANG LALABAS -->
+<section class="hero" id="passwordScreen">
+  <div class="card fade-in">
+    <div class="tag">A little surprise for you</div>
+
+    <h1>For My Mahal 💙🌷</h1>
+
+    <div class="gift">🎁</div>
+
+    <p>
+      I prepared something special for you, Mahal ko. 🥹💗
+    </p>
+
+    <p>
+      Hint: My birthday, your birthday, and our monthsary 💙🌷
+    </p>
+
+    <form id="passwordForm">
+      <input
+        id="birthdayPassword"
+        type="password"
+        placeholder="Enter your password"
+        autocomplete="off"
+        required
+      >
+
+      <button class="btn" type="submit">
+        Unlock My Gift 💖
+      </button>
+    </form>
+
+    <p id="passwordError" role="alert"></p>
+  </div>
+</section>
+
+<!-- GIFT OPENING: HIDDEN HANGGANG TAMA ANG PASSWORD -->
+<section class="hero hidden" id="opening">
+  <div class="card fade-in">
+    <div class="tag">A little surprise for you</div>
+
+    <div
+      class="gift"
+      onclick="openSurprise()"
+      role="button"
+      tabindex="0"
+      aria-label="Open your birthday gift"
+    >🎁</div>
+
+    <h1>Hello po, Mahal ko 💙🌷</h1>
+
+    <p>I prepared a little surprise for you po!</p>
+
+    <p class="sparkle">♡ Tap this gift to open po ♡</p>
+
+    <button class="btn" onclick="openSurprise()">
+      Open Your Gift 💌
+    </button>
+  </div>
+</section>
+
+<!-- BIRTHDAY GREETING -->
+<section id="surprise" class="hidden">
+  <div class="card fade-in">
+    <div class="glow">🎂 💗 🎉</div>
+
+    <p class="tag">October 10, 2026</p>
+
+    <h1>Happy 20th Birthday, Mahal ko 🫀</h1>
+
+    <p>
+      Happy birthday sa pinaka-special na tao
+      sa buhay ko! 🥹💗
+    </p>
+
+    <p>
+      Today is your day, and I hope it brings you
+      as much happiness as you bring into my life.
+    </p>
+
+    <p>
+      May all your dreams slowly come true.
+      I hope you always find reasons to smile,
+      courage when things get difficult,
+      and people who remind you how special you are.
+    </p>
+
+    <p>
+      Thank you for being you, Mahal.
+      You deserve all the beautiful things in this world. 🫶🏻
+    </p>
+
+    <button class="btn" onclick="showMemories()">
+      See Our Memories 📸
+    </button>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section id="memories" class="hidden">
+  <div class="card fade-in">
+    <p class="tag">Little moments, big memories</p>
+
+    <h2>Our Little World 💞</h2>
+
+    <p>
+      Every picture holds a memory,
+      and every memory with you is special to me.
+    </p>
+
+    <div class="gallery">
+
+      <figure class="photo">
+        <img src="photo1.jpg" alt="Our first photo together">
+        <figcaption>💙🌷</figcaption>
+      </figure>
+
+      <figure class="photo">
+        <img src="photo2.jpg" alt="A happy moment together">
+        <figcaption>Always smile for me, Mahal 😚</figcaption>
+      </figure>
+
+      <figure class="photo">
+        <img src="photo3.jpg" alt="Another memory together">
+        <figcaption>Us, being us 🫶🏻</figcaption>
+      </figure>
+
+      <figure class="photo">
+        <img src="photo4.jpg" alt="A special photo together">
+        <figcaption>More memories to come ✨</figcaption>
+      </figure>
+
+    </div>
+
+    <button class="btn" onclick="showLetter()">
+      One Last Surprise 💌
+    </button>
+  </div>
+</section>
+
+<!-- LOVE LETTER -->
+<section id="letterSection" class="hidden">
+  <div class="card fade-in">
+    <div class="glow">💌 🌷 💗</div>
+
+    <h2>A Letter for My Mahal</h2>
+
+    <div class="letter">
+      <p>To my Mahal,</p>
+
+      <p>
+        Happy Birthday sa pinaka mamahal ko, always pogiiii
+        kaya daming nagkakagusto. Sorry po, Mahal, wala po
+        me maibigay na gift, kaya naisipan ko na lang pong
+        gawin itong code na ito for you po.
+      </p>
+
+      <p>
+        Always remember po na nandito lang po ako, ahhh.
+        Huwag mo pong solohin yung mga tinatago mo pong
+        problems or pressure na binibigay ng mga taong
+        nakapaligid sa'yo. Huwag mo pong itago, Mahal,
+        kasi masakit po sa akin na malalaman ko na lang
+        na nagso-suffer ka pong mag-isa.
+      </p>
+
+      <p>
+        Always mo pong tatandaan na gusto po kitang
+        damayan sa lahat ng bagay. Mahal na mahal po kita 😚😚
+      </p>
+
+      <p>
+        On your 20th birthday, I wish you a life full of
+        peace, growth, laughter, and beautiful opportunities.
+        When life gets hard, I hope you remember how capable
+        you are of getting through the challenges ahead.
+      </p>
+
+      <p>
+        Always pray po kay God, Mahal ko, ahhh.
+        God bless you po, Mahal ko!!
+      </p>
+
+      <p>
+        Happy birthday again, Mahal.
+        Keep being a kind person and be patient always.
+        Today and always, I'm cheering for you. 💗
+      </p>
+
+      <p style="text-align:right">
+        With lots of love,<br>
+        Linj 😚 (Soon to be your wife)
+      </p>
+    </div>
+
+    <h2>I Love You, Mahal ko! 💋</h2>
+
+    <button class="btn" onclick="finalSurprise()">
+      Tap for More Love 💖
+    </button>
+
+    <p id="finalMessage" class="hidden fade-in">
+      No matter how many birthdays come,
+      I hope you always feel loved and appreciated.
+      You are so special to me. 💗🌎
+    </p>
+
+    <p>🎂 Happy 20th Birthday! 🎂</p>
+  </div>
+</section>
+
+<div class="footer">
+  Made with love, just for you 💗<br>
+  Forever a special memory ✨
+</div>
+
+<script>
+/* PASSWORD CHECK */
+const passwordForm = document.getElementById("passwordForm");
+
+passwordForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const password = document.getElementById("birthdayPassword").value;
+  const error = document.getElementById("passwordError");
+
+  if (password === "191007") {
+    document.getElementById("passwordScreen").classList.add("hidden");
+    document.getElementById("opening").classList.remove("hidden");
+
+    document.getElementById("birthdayPassword").value = "";
+    error.textContent = "";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    celebrate();
+  } else {
+    error.textContent = "Wrong password, Mahal. Try again po. 💗";
+    document.getElementById("birthdayPassword").value = "";
+  }
+});
+
+/* OPEN THE GIFT AFTER UNLOCKING */
+function openSurprise() {
+  document.getElementById("opening").classList.add("hidden");
+  document.getElementById("surprise").classList.remove("hidden");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  celebrate();
+}
+
+/* SHOW MEMORIES */
+function showMemories() {
+  document.getElementById("memories").classList.remove("hidden");
+
+  document.getElementById("memories").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  celebrate();
+}
+
+/* SHOW LETTER */
+function showLetter() {
+  document.getElementById("letterSection").classList.remove("hidden");
+
+  document.getElementById("letterSection").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  celebrate();
+}
+
+/* FINAL SURPRISE */
+function finalSurprise() {
+  document.getElementById("finalMessage").classList.remove("hidden");
+  celebrate();
+}
+
+/* FLOATING HEARTS */
+function celebrate() {
+  const emojis = ["💗", "💕", "💖", "💘", "🌸", "✨", "🎉"];
+
+  for (let i = 0; i < 32; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("span");
+
+      heart.className = "heart";
+      heart.textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (18 + Math.random() * 22) + "px";
+      heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7500);
+    }, i * 45);
+  }
+}
+
+/* GENTLE FLOATING HEARTS */
+setInterval(() => {
+  const heart = document.createElement("span");
+
+  heart.className = "heart";
+  heart.textContent = ["💕", "💗", "🌸", "✨"][
+    Math.floor(Math.random() * 4)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = "20px";
+  heart.style.animationDuration = (5 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 8500);
+}, 1000);
+
+/* KEYBOARD ACCESSIBILITY */
+document.querySelector(".gift[role='button']")
+  .addEventListener("keydown", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openSurprise();
+    }
+  });
+</script>
+
+</body>
+</html>
